@@ -1,3 +1,26 @@
+
+Create react application (Duration - 60 minutes)
+
+1. The application should consist of 2 pages Home Page and Contact Page
+2. Both page should have common header (Logo + Links for Home and Contact)
+3. On home page display series of cards with minimal UI pattern (For card information use the attached JSON below) [card should have title, image, and release date]
+4. On contact page collect user information and on submit button click store the user information in Local storage (minimum 3 fields)
+
+Note:- The data is in JSON format.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
