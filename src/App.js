@@ -1,47 +1,58 @@
-// import React from 'react';
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import Contact from './pages/Contact';
-// import HomePage from './pages/HomePage';
-// import './style.css';
+import React, { createContext, useContext, useReducer } from 'react';
 
-// const App = () => {
-//   return (
-    
-//     <Router>
-//       <Routes>
-//         <Route exact path="/">
-//           <HomePage />
-//         </Route>
-//         <Route exact path="/contact">
-//           <Contact />
-//         </Route>
-//         {/* <Route exact path="/details">
-//           <HomePage />
-//         </Route> */}
-//       </Routes>
-//     </Router>
-//   );
-// };
+const initialState = {
+  count1: 0,
+  count2: 0,
+};
 
-// export default App;
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'INCREMENT':
+      return {
+        ...state,[action.name]: state[action.name] + 1,
+      };
+    case 'DECREMENT':
+      return {
+        ...state,[action.name]: state[action.name] - 1,
+      };
+    default: return state;
+  }
+};
 
+const useValue = () => useReducer(reducer, initialState);
 
+const Context = createContext(null);
 
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import HomePage from "./HomePage";
-import Contact from "./Contact";
-function App() {
+const useGlobalState = () => {
+  const value = useContext(Context);
+  if (value === null) throw new Error('Add GlobalProvider');
+  return value;
+};
+
+const GlobalProvider = ({ children }) => (
+  <Context.Provider value={useValue()}>{children}</Context.Provider>
+);
+
+const Counter = ({ name }) => {
+  const [state, dispatch] = useGlobalState();
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-    </Router>
+    <div>
+        
+      <button onClick={() => dispatch({ type: 'INCREMENT', name })}>Increment +2</button>
+      <button onClick={() => dispatch({ type: 'INCREMENT', name })}>Increment +1</button>
+      <button>{state[name]}</button>
+      <button onClick={() => dispatch({ type: 'DECREMENT', name })}>Decrement -1</button>
+      <button onClick={() => dispatch({ type: 'INCREMENT', name })}>Decrement -2</button>
+    </div>
   );
-}
+};
+
+const App = () => (
+  <GlobalProvider>
+    <h1>useReducer Hook</h1>
+    <h3>Count </h3>
+    <Counter name="count1" />
+  </GlobalProvider>
+);
 
 export default App;
