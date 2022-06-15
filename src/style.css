@@ -1,4 +1,4 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -13,7 +13,7 @@
     cursor: pointer;
   }
   /* Header CSS */
-  header {
+  /* header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -36,10 +36,10 @@
   header .link__class {
     text-decoration: none;
     color: #ffffff;
-  }
+  } */
   
   /* Footer CSS */
-  footer {
+  /* footer {
     background-color: #2270cc;
     color: #ffffff;
     position: fixed;
@@ -48,10 +48,10 @@
     padding: 15px 0;
     text-align: center;
   }
-  
+   */
   /* Banner CSS */
   
-  .banner__section {
+  /* .banner__section {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -99,7 +99,7 @@
   .contact input[type='checkbox'] {
     width: 20px;
     padding: 3px;
-  }
+  } */
 /*   
   .news__card__container {
     display: grid;
@@ -137,3 +137,49 @@
     padding: 10px 0;
   }
    */
+
+
+
+
+
+
+
+   body {
+    margin: 10px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+      "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  }
+  
+  .nav {
+    list-style: none;
+    background-color: #50b6ffb7;
+    padding: 25px;
+  }
+  .nav li {
+    margin-right: 5px;
+  }
+  .flex {
+    display: flex;
+  }
+  .flex-col {
+    flex-direction: column;
+    
+  }
+  .wrap {
+    flex-wrap: wrap;
+  }
+  
+  .link {
+    margin: 250px;
+    text-decoration: none;
+  }
+  .p5 {
+    margin-left: 50px;
+    padding: 5px;
+  }
